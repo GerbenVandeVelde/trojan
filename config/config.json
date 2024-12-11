@@ -1,0 +1,9 @@
+{
+    "client_id": "unique_client_12345",
+    "modules_to_run": [
+      "portscan_module",
+      "ddos_module"
+    ],
+    "poll_interval": 300
+  }
+  

@@ -1,12 +1,13 @@
 import socket
 
-def run(target="127.0.0.1", ports=range(20, 1025)):
-    """Scan open ports on a target."""
+def run():
+    target_ip = "127.0.0.1"
     open_ports = []
-    for port in ports:
-        try:
-            with socket.create_connection((target, port), timeout=1):
-                open_ports.append(port)
-        except:
-            continue
-    return {"target": target, "open_ports": open_ports}
+    for port in range(1, 65535):
+        sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        sock.settimeout(1)
+        result = sock.connect_ex((target_ip, port))
+        if result == 0:
+            open_ports.append(port)
+        sock.close()
+    print(f"Open ports: {open_ports}")

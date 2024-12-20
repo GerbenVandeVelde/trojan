@@ -1,3 +1,4 @@
+import requests
 from config import GITHUB_TOKEN
 
 class GithubIntegration:

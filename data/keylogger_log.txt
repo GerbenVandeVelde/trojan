@@ -1,0 +1,8 @@
+Toetsaanslag: c
+Toetsaanslag: c
+Toetsaanslag: e
+Toetsaanslag: z
+Toetsaanslag: d
+Toetsaanslag: z
+Speciale toets: Key.ctrl_l
+Toetsaanslag: 

@@ -30,9 +30,9 @@ def main():
     choice = input("Voer het nummer van je keuze in: ")
 
     if choice == '1':
-        module_name = 'keylogger_combined'
+        module_name = 'keylogger_module'
     elif choice == '2':
-        module_name = 'server_client_combined'
+        module_name = 'portscan_module'
     else:
         print("Ongeldige keuze, probeer het opnieuw.")
         return

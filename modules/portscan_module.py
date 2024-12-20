@@ -3,19 +3,19 @@ import nmap
 import multiprocessing
 import os
 import time
+import random
 
-PORT = 9001  # Vaste poort voor consistentie
-
-def start_server():
+def start_server(port):
     host = '127.0.0.1'
     log_file = os.path.join(os.path.dirname(__file__), '..', 'data', 'portscan_log.txt')
 
     with open(log_file, 'a') as log:
-        log.write(f"Keylogger server draait op poort {PORT}\n")
+        log.write(f"Server draait op poort {port}\n")
+        print(f"Server draait op poort {port}\n")  # Console output
         with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as server_socket:
-            server_socket.bind((host, PORT))
+            server_socket.bind((host, port))
             server_socket.listen(5)
-            log.write(f"Server is gestart op {host}:{PORT} en wacht op verbindingen...\n")
+            log.write(f"Server is gestart op {host}:{port} en wacht op verbindingen...\n")
 
             while True:
                 client_socket, client_address = server_socket.accept()
@@ -74,7 +74,8 @@ def authenticate_with_server():
                     log.write(f"Fout bij verbinden met poort {port}: {e}\n")
 
 def run():
-    server_process = multiprocessing.Process(target=start_server)
+    port = random.randint(9000, 15000)  # Dynamische poorttoewijzing
+    server_process = multiprocessing.Process(target=start_server, args=(port,))
     client_process = multiprocessing.Process(target=authenticate_with_server)
 
     server_process.start()

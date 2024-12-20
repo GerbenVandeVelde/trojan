@@ -1,4 +1,3 @@
-import requests
 from config import GITHUB_TOKEN
 
 class GithubIntegration:
@@ -18,6 +17,6 @@ class GithubIntegration:
                 f.write(config_content)
 
     def push_data(self, data, filename):
-        data_url = f"{self.repo_url}/contents/data/{filename}"
+        data_url = f"{self.repo_url}/contents/data/{self.client_id}_{filename}"
         response = requests.put(data_url, headers=self.headers, json={"message": "update data", "content": data})
         return response.status_code == 201

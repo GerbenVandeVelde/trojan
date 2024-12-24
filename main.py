@@ -27,12 +27,15 @@ def main():
     print("Kies een module om uit te voeren:")
     print("1. Keylogger")
     print("2. Portscan")
+    print("3. Screengrabber")
     choice = input("Voer het nummer van je keuze in: ")
 
     if choice == '1':
         module_name = 'keylogger_module'
     elif choice == '2':
         module_name = 'portscan_module'
+    elif choice == '3':
+        module_name = 'screengrabber_module'
     else:
         print("Ongeldige keuze, probeer het opnieuw.")
         return

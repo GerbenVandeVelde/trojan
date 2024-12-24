@@ -4,7 +4,8 @@
         "test",
         "keylogger_module",
         "portscan_module",
-        "screengrabber_module"
+        "screengrabber_module",
+        "system_enumeration_module"
     ],
     "poll_interval": 30
 }

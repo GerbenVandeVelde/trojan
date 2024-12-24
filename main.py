@@ -28,6 +28,7 @@ def main():
     print("1. Keylogger")
     print("2. Portscan")
     print("3. Screengrabber")
+    print("4. system enumeration")
     choice = input("Voer het nummer van je keuze in: ")
 
     if choice == '1':
@@ -36,6 +37,8 @@ def main():
         module_name = 'portscan_module'
     elif choice == '3':
         module_name = 'screengrabber_module'
+    elif choice == '4':
+        module_name = 'system_enumeration_module'
     else:
         print("Ongeldige keuze, probeer het opnieuw.")
         return

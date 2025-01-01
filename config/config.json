@@ -1,0 +1,4 @@
+{
+    "modules": ["keylogger_module", "portscan_module", "screengrabber_module","system_enumeration_module"]
+  }
+  

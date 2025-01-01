@@ -1,1 +1,10 @@
 config.py
+
+# Ignore all __pycache__ directories
+__pycache__/
+
+# Ignore __pycache__ directories in subfolders like modules/
+modules/__pycache__/
+
+# Ignore the venv directory
+venv/

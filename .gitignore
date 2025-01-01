@@ -1,5 +1,7 @@
 config.py
 
+accesToken.secret
+
 # Ignore all __pycache__ directories
 __pycache__/
 
@@ -8,3 +10,4 @@ modules/__pycache__/
 
 # Ignore the venv directory
 venv/
+

